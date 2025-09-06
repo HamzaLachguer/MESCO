@@ -7,6 +7,13 @@ const headerElements = {
     hidePromoModal: document.querySelector("#close-promo-btn"),
     promoModalContainer: document.querySelector("#promo-modal"),
   },
+
+  navigationMenu: {
+    openNavMenuBtn: document.querySelector("#open-nav-menu"),
+    closeNavMenuBtn: document.querySelector("#close-menu-btn"),
+    navMenuContainer: document.querySelector("#navigation-menu"),
+    navigationBar: document.querySelector("#main-navigation-bar"),
+  }
 }
 
 
@@ -55,7 +62,46 @@ function initPromoModal() {
   headerElements.promoModal.hidePromoModal.addEventListener('click', hidePromoModal);
 }
 
+
+
+// function => show navigation menu
+function openNavMenu() {
+  headerElements.navigationMenu.navMenuContainer.classList.replace("hidden", "flex");
+  headerElements.navigationMenu.navigationBar.classList.replace("grid", "hidden");
+
+  // update aria attributes
+  headerElements.navigationMenu.openNavMenuBtn.setAttribute("aria-expanded", true);
+  headerElements.navigationMenu.openNavMenuBtn.setAttribute("aria-expanded", true);
+  headerElements.navigationMenu.navMenuContainer.setAttribute("aria-hidden", false);
+}
+
+// function => close navigation
+function closeNavMenu() {
+  headerElements.navigationMenu.navMenuContainer.classList.replace("flex", "hidden");
+  headerElements.navigationMenu.navigationBar.classList.replace("hidden", "grid");
+
+  // update aria attributes
+  headerElements.navigationMenu.openNavMenuBtn.setAttribute("aria-expanded", false);
+  headerElements.navigationMenu.openNavMenuBtn.setAttribute("aria-expanded", false);
+  headerElements.navigationMenu.navMenuContainer.setAttribute("aria-hidden", true);
+}
+
+//  nav menu event listeners
+function initNavigation() {
+  headerElements.navigationMenu.openNavMenuBtn.addEventListener('click', openNavMenu);
+  headerElements.navigationMenu.closeNavMenuBtn.addEventListener('click', closeNavMenu);
+
+  headerElements.navigationMenu.navMenuContainer.addEventListener('click', (e) => {
+    if (e.target.closest("#nav-menu-container")) return;
+
+    closeNavMenu();
+  })
+}
+
+
+
 // 
 document.addEventListener("DOMContentLoaded", () => {
   initPromoModal();
+  initNavigation();
 })
