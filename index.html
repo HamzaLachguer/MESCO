@@ -125,7 +125,7 @@
             </li>
           </ul>
         </nav>
-        <button id="open-cart" aria-expanded="" class="uppercase flex gap-[4px] items-center w-fit  hover:text-primary-99 transition">cart <span class="h-[18px] w-[18px] bg-color-dark text-color-white rounded-2xl grid place-items-center">0</span>
+        <button id="open-cart" aria-expanded="" class="uppercase flex gap-[4px] items-center w-fit  hover:text-primary-99 transition">cart <span class="h-[18px] w-[18px] bg-primary text-white rounded-2xl grid place-items-center">0</span>
         </button>
       </div>
     </section>
@@ -186,7 +186,7 @@
                 <a href="">favorites</a>
               </li>
               <li>
-                <button class="uppercase" id="currency-btn2">lv | <span>eur</span></button>
+                <button class="uppercase" id="country-selector-mobile">lv | <span>eur</span></button>
               </li>
             </ul>
           </div>
@@ -208,6 +208,57 @@
         </nav>
       </div>
     </section>
+
+    <!-- select country -->
+    <section id="country-selector-container" class="fixed z-50 w-screen h-screen left-0 top-0 bg-[#00000040] p-5 hidden place-items-center transition opacity-0">
+
+      <div class="flex flex-col items-end justify-center gap-2 animate-fade-up w-full md:w-[500px]">
+
+        <button id="close-country-selector" class="h-7 w-7 bg-white-14 outline outline-[.5px] outline-white-99 rounded-3xl grid place-items-center" aria-expanded="true" aria-controls="country-selector-container">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M18 6L6 18M6 6L18 18" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+          </svg>
+        </button>
+
+        <div id="form-wrapper" class=" bg-white p-6 w-full ">
+          <div class="h-6 w-6 rounded-xl overflow-hidden">
+            <img src="data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%221em%22%20height%3D%221em%22%20viewBox%3D%220%200%20512%20512%22%3E%3Cg%20fill-rule%3D%22evenodd%22%3E%3Cpath%20fill%3D%22%23fff%22%20d%3D%22M0%200h512v512H0z%22%2F%3E%3Cpath%20fill%3D%22%23981e32%22%20d%3D%22M0%200h512v204.8H0zm0%20307.2h512V512H0z%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E" alt="" class="h-full w-full object-center object-cover">
+          </div>
+
+          <h2 class="text-[28px] my-5">You're in Latvia</h2>
+
+          <ul class="uppercase font-medium flex flex-col gap-2">
+            <li class="flex items-center gap-2 ">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M4 12H20M20 12L14 6M20 12L14 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+              </svg>
+              Discount on orders over €200
+            </li>
+
+            <li class="flex items-center gap-2 ">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M4 12H20M20 12L14 6M20 12L14 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+              </svg>
+              Taxes calculated at checkout
+            </li>
+
+            <li class="flex items-center gap-2 ">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M4 12H20M20 12L14 6M20 12L14 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+              </svg>
+              Receive order in 2-3 business weeks
+            </li>
+
+          </ul>
+
+          <select class="h-12 w-full border border-solid broder-light px-5 focus:outline-none mt-5 uppercase font-medium hover:border-primary transition" name="" id="">
+            <option value="0" class="capitalize">latvia (EUR)</option>
+          </select>
+        </div>
+      </div>
+
+    </section>
+
   </header>
 
 
