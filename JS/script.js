@@ -29,6 +29,7 @@ function showPromoModal() {
 
   headerElements.promoModal.promoModalContainer.classList.replace("hidden", "grid");
   headerElements.promoModal.promoModalContainer.classList.replace("opacity-0", "opacity-1");
+  document.body.classList.toggle("overflow-hidden");
 
   // update aria attributes
   headerElements.promoModal.promoModalContainer.setAttribute("aria-hidden", false);
@@ -64,7 +65,7 @@ function initPromoModal() {
 
 
 
-// function => show navigation menu
+// function => open navigation menu
 function openNavMenu() {
   headerElements.navigationMenu.navMenuContainer.classList.replace("hidden", "flex");
   headerElements.navigationMenu.navigationBar.classList.replace("grid", "hidden");
