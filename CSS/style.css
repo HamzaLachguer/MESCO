@@ -16,3 +16,25 @@ button, a {
 }
 
 li {list-style: none;}
+
+
+
+
+.transition {
+  transition: 1s ease;
+}
+
+.animate-fade-up {
+  animation: fadeUp 1s ease;
+}
+
+@keyframes fadeUp {
+  0% {
+    transform: translateY(60px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+}
