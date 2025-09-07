@@ -18,7 +18,7 @@ button, a {
 li {list-style: none;}
 
 
-body {height: 1000px;}
+body {height: 0;}
 
 
 .transition {
@@ -31,6 +31,10 @@ body {height: 1000px;}
 
 .animate-fade-right {
   animation: fadeRight 1s ease;
+}
+
+.animate-fade-left {
+  animation: fadeLeft .5s ease;
 }
 
 @keyframes fadeUp {
@@ -48,6 +52,17 @@ body {height: 1000px;}
   0% {
     transform: translateX(-60px);
     opacity: 0;
+  }
+  100% {
+    transform: translateX(0px);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeLeft {
+  0% {
+    transform: translateX(60px);
+    opacity: .5;
   }
   100% {
     transform: translateX(0px);

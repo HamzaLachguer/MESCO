@@ -20,6 +20,14 @@ const headerElements = {
     showCountrySelectorMobile: document.querySelector("#country-selector-mobile"),
     countrySelectorContainer: document.querySelector("#country-selector-container"),
     closeCountrySelector: document.querySelector("#close-country-selector"),
+  },
+
+  search: {
+    openSearchBtn: document.querySelector("#show-search-input"),
+    openSearchBtnMobile: document.querySelector("#show-search-field-mobile"),
+    searchFieldContainer: document.querySelector("#search-product-container"),
+    closeSearchBtn: document.querySelector("#hide-search-field"),
+    emptySearchBtn: document.querySelector("#empty-input"),
   }
 }
 
@@ -110,7 +118,7 @@ function initCountrySelector() {
   headerElements.countrySelector.showCountrySelectorMobile.addEventListener('click', showCountrySelector);
 
   headerElements.countrySelector.countrySelectorContainer.addEventListener('click', (e) => {
-    if (e.target.closest("#promo-modal-content")) return;
+    if (e.target.closest("#form-wrapper")) return;
   
     hideCountrySelector();
   });
@@ -155,9 +163,49 @@ function initNavigation() {
 
 
 
+
+function openSerachField() {
+  headerElements.search.searchFieldContainer.classList.replace("hidden", "flex");
+  document.body.classList.add("overflow-hidden");
+
+  // updating aria attributes
+  headerElements.search.searchFieldContainer.setAttribute("aria-hidden", false);
+  headerElements.search.openSearchBtn.setAttribute("aria-expanded", true);
+  headerElements.search.closeSearchBtn.setAttribute("aria-expanded", true);
+}
+
+
+function closeSerachField() {
+  headerElements.search.searchFieldContainer.classList.replace("flex", "hidden");
+  document.body.classList.remove("overflow-hidden");
+
+  // updating aria attributes
+  headerElements.search.searchFieldContainer.setAttribute("aria-hidden", true);
+  headerElements.search.openSearchBtn.setAttribute("aria-expanded", false);
+  headerElements.search.closeSearchBtn.setAttribute("aria-expanded", false);
+}
+
+
+
+function initSearching() {
+  headerElements.search.openSearchBtn.addEventListener('click', openSerachField);
+  headerElements.search.openSearchBtnMobile.addEventListener('click', () => {
+    closeNavMenu();
+    openSerachField();
+  });
+
+  headerElements.search.searchFieldContainer.addEventListener('click', (e) => {
+    if (e.target.closest("#search-container")) return;
+
+    closeSerachField();
+  })
+  headerElements.search.closeSearchBtn.addEventListener('click', closeSerachField)
+}
+
 // 
 document.addEventListener("DOMContentLoaded", () => {
   initPromoModal();
   initNavigation();
   initCountrySelector();
+  initSearching();
 })
