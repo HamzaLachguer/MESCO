@@ -69,3 +69,7 @@ body {height: 0;}
     opacity: 1;
   }
 }
+
+.cart-body {
+  max-height: calc(100% - 296px);
+}
